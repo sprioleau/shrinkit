@@ -1,5 +1,6 @@
 import axios from "axios";
 import { GetServerSideProps } from "next";
+require("dotenv").config();
 
 const Redirect = () => {
 	return null;

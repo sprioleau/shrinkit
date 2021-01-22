@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-require("dotenv").config();
 const connectDatabase = require("../../utilities/connectDatabase.ts");
 const UrlGroup = require("../../models/UrlGroup.model.tsx");
 
