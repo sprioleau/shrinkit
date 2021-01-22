@@ -5,12 +5,14 @@ const Redirect = () => {
 	return null;
 };
 
+const home = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://shrinkit.vercel.app";
+
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
 	const { id } = context.params;
 	console.log("[id] from context.params in [id].tsx:", id);
 
 	try {
-		const response = await axios.post("http://localhost:3000/api/get-short-url", {
+		const response = await axios.post(`${home}/api/get-short-url`, {
 			id,
 		});
 
