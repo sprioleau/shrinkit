@@ -11,7 +11,7 @@ const Home = () => {
 	const [loading, setLoading] = useState<boolean>(false);
 	const [errorMessage, setErrorMessage] = useState<string>("");
 
-	const home = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "shrinkit.vercel.app";
+	const home = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "";
 
 	useEffect(() => {
 		setLongUrl("");
