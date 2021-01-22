@@ -7,6 +7,7 @@ const Redirect = () => {
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
 	const { id } = context.params;
+	console.log("[id] from context.params in [id].tsx:", id);
 
 	try {
 		const response = await axios.post("http://localhost:3000/api/get-short-url", {
@@ -14,6 +15,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
 		});
 
 		const longUrl = response.data.longUrl;
+		console.log("longUrl coming into [id].tsx:", longUrl);
 
 		return {
 			redirect: {

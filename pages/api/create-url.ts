@@ -11,6 +11,7 @@ connectDatabase();
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 	let longUrl = cleanUrl(req.body.longUrl);
+	console.log("longUrl from user input in index.tsx (in create-urls.ts):", longUrl);
 	const shortId = nanoid(6);
 
 	if (!longUrl) {
@@ -19,6 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 	} else {
 		const { emojiString } = randomEmojiString(3);
 		const urlGroupsList = await UrlGroup.find();
+		console.log("urlGroupsList from database (in create-urls.ts):", urlGroupsList);
 		const isExistingUrlGroup = urlGroupsList.find((urlGroup: UrlGroupType) => urlGroup.longUrl === longUrl);
 
 		if (!isExistingUrlGroup) {

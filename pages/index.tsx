@@ -11,7 +11,7 @@ const Home = () => {
 	const [loading, setLoading] = useState<boolean>(false);
 	const [errorMessage, setErrorMessage] = useState<string>("");
 
-	const home = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://shrinkit.vercel.app";
+	const home = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "shrinkit.vercel.app";
 
 	useEffect(() => {
 		setLongUrl("");
@@ -25,6 +25,7 @@ const Home = () => {
 		await axios
 			.post("/api/create-url", { longUrl })
 			.then((res) => {
+				console.log("res.data coming into index.tsx:", res.data);
 				if (!res.data.shortId) {
 					setErrorMessage(res.data.error.message);
 					setLoading(false);
