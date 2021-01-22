@@ -1,12 +1,12 @@
 import axios from "axios";
 import { GetServerSideProps } from "next";
-require("dotenv").config();
 
 const Redirect = () => {
 	return null;
 };
 
 const home = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://shrinkit.vercel.app";
+console.log("home:", home);
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
 	const { id } = context.params;

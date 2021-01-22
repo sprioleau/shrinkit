@@ -65,18 +65,22 @@ const Home = () => {
 				)}
 				{urlGroupsList && urlGroupsList.length > 0 && (
 					<table className="url-groups-list">
-						<tr>
-							<th>Long Url</th>
-							<th>Emoji Code</th>
-							<th>Hits</th>
-						</tr>
-						{urlGroupsList.map(({ longUrl, emojiString, hits }: UrlGroupType) => (
-							<tr className="url-groups-list__item">
-								<td>{longUrl.replace("http://", "")}</td>
-								<td>{emojiString}</td>
-								<td>{hits}</td>
+						<thead>
+							<tr>
+								<th>Long Url</th>
+								<th>Emoji Code</th>
+								<th>Hits</th>
 							</tr>
-						))}
+						</thead>
+						<tbody>
+							{urlGroupsList.map(({ longUrl, emojiString, hits }: UrlGroupType) => (
+								<tr key={`${longUrl}-${emojiString}`} className="url-groups-list__item">
+									<td>{longUrl.replace("http://", "")}</td>
+									<td>{emojiString}</td>
+									<td>{hits}</td>
+								</tr>
+							))}
+						</tbody>
 					</table>
 				)}
 			</main>
